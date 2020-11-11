@@ -1,0 +1,113 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc
+Date     : 3/2/2019
+Time     : 4:08:52 PM
+
+Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=80mil) (Preferred=10mil) (InNet('GND'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=20mil) (Max=40mil) (Preferred=30mil) (InNet('+5') Or InNet('VCC') Or InNet('+5_SW'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P1-1(250mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:42 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P1-2(245mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P2-1(590mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P2-2(585mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P3-1(950mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P3-2(945mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P4-1(1310mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P4-2(1305mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P5-1(1660mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (206mil > 100mil) Pad P5-2(1655mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (126mil > 100mil) Via (150mil,150mil) from Top Layer to Bottom Layer Actual Hole Size = 126milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (126mil > 100mil) Via (150mil,3850mil) from Top Layer to Bottom Layer Actual Hole Size = 126milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (126mil > 100mil) Via (3850mil,150mil) from Top Layer to Bottom Layer Actual Hole Size = 126milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+   Waived Violation between Hole Size Constraint: (126mil > 100mil) Via (3850mil,3850mil) from Top Layer to Bottom Layer Actual Hole Size = 126milWaived by Jaden Bottemiller at 3/2/2019 4:05:54 PM
+Waived Violations :14
+
+Waived Violations Of Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U2-1(2920mil,3000mil) on Multi-Layer And Track (2350mil,2950mil)(2940mil,2950mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:28 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U2-7(2920mil,3600mil) on Multi-Layer And Track (2350mil,3650mil)(2940mil,3650mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:28 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-1(1110mil,3050mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-1(1110mil,3050mil) on Multi-Layer And Track (1060mil,3100mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-1(1110mil,3050mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-10(1735mil,2440mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-10(1735mil,2440mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-11(1735mil,2540mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-11(1735mil,2540mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-12(1735mil,2640mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-12(1735mil,2640mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-13(1735mil,2750mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-13(1735mil,2750mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-14(1735mil,2850mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-14(1735mil,2850mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-15(1735mil,2950mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-15(1735mil,2950mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-16(1735mil,3050mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-16(1735mil,3050mil) on Multi-Layer And Track (1685mil,3100mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-16(1735mil,3050mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-2(1110mil,2950mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-2(1110mil,2950mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-3(1110mil,2850mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-3(1110mil,2850mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-4(1110mil,2750mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-4(1110mil,2750mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-5(1110mil,2640mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-5(1110mil,2640mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-6(1110mil,2540mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-6(1110mil,2540mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-7(1110mil,2440mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-7(1110mil,2440mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-8(1110mil,2340mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-8(1110mil,2340mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-9(1735mil,2340mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.984mil < 10mil) Between Pad U3-9(1735mil,2340mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.982mil < 10mil) Between Pad U5-1(1555mil,1145mil) on Multi-Layer And Track (1610mil,1015mil)(1610mil,1475mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.982mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.982mil < 10mil) Between Pad U5-2(1555mil,1245mil) on Multi-Layer And Track (1610mil,1015mil)(1610mil,1475mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.982mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (9.982mil < 10mil) Between Pad U5-3(1555mil,1345mil) on Multi-Layer And Track (1610mil,1015mil)(1610mil,1475mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.982mil]Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM
+Waived Violations :39
+
+
+Violations Detected : 0
+Waived Violations : 53
+Time Elapsed        : 00:00:00

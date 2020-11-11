@@ -1,0 +1,7 @@
+DRC Rules Export File for PCB: C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc
+RuleKind=Width|RuleName=GND_Width|Scope=Board|Minimum=10.00
+RuleKind=Width|RuleName=5V_VCC_HC_WIDTH|Scope=Board|Minimum=20.00
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=5.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0

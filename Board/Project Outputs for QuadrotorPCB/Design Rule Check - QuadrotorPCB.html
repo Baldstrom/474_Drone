@@ -1,0 +1,520 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3/2/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4:08:52 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc" class="file"><acronym title="C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc">C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">53</td></tr>
+</table>
+</td>
+</table><a name="IDSVSRIY0HI4FRGFOLFHSAZPC1QONJ3ZXAFIKAZUOLZGOSBDUCPUN"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDK1VLK3P0NCQMDTJZIXQVAPMGTOQPBCAA4ISBJGBLYN55GPQKGDZB">Clearance Constraint (Gap=5mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAE5VL3VNQDHHH2WSEWLJFEYQ5OYNVABRA4MXBZHE1VBNRI0ITQPP">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIN5XCURUQYP1HUCETGSILHHCZMWJD5OFPOO15XLX35GLVWWOGMJH">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRPWEIWYT3E2YCYL3QOBKSQR21OQHBKFQBBSUSEHSJNMDIVMJNCWE">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVWIRF3XM55HHCLS3KTZKOII2XKB2XF0NJO3B3NPY02WDYZ3E0FWB">Width Constraint (Min=10mil) (Max=80mil) (Preferred=10mil) (InNet('GND'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDV5E5Z5Q3FWPBHSYAT5DXMCWIZ2AVNI3RCJXKKJQEG3OOQYN3ODH">Width Constraint (Min=20mil) (Max=40mil) (Preferred=30mil) (InNet('+5') Or InNet('VCC') Or InNet('+5_SW'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5BDOWVEF5WMQNWYLU14ZSPXMYBWJJG2Q1ZYVUUNRBHTHXB1DELHN">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDP11VS1IG3J3KTBE4RDCC4GPLEUYRIITUWMZIYEFMNJM3MNKZSQG">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHZ03LGTTQXAEP1BTG1FXVBZMRKPQ0PLQ1AVDG4I5ICULXQ5DVB3B">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYTFA2SPCLG3OJVW521UFGVONING3R1M0OUORN5ONLOKB3Y1CELGN">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDONP1V0VBNUCMRZUIRAZSMHZJBEC2WNGE1KS5LFYSQ4DISDPGIYI">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4VJOBR4CSZ1YFOI32SCJC3MY5ISB0X13IY0STBIXM25JH0XGALJH">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHTRHDDXC3TUUMZV4YJXBZ0XE0MXZ52VKXWRJRGGY2FFRGXQOGVAM">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTFU4MUST1I3GGFNU3BHIMQUMBNRKBX1BBSOYHEZOKG2YCARVFRD">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHC4Z4FQHYTKACXHMHKOVK3AS5IW5YW3JFRHN2E0MULKSO355WHP">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOJMKMRNAA4YJFMBVVH1LZPZ5WB4KKO3EAFCJPABX41NXJR2EWN2E">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3O0DBHYI4O0FIUUJOBLHXF2H11RUX3PKUOQBDPOHY4EYVL0Y5JD">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">39</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">53</td>
+</tr>
+</table><br><a name="IDDIU5H2Q41AEXKGKZUSC3ZKX0HLDP25GYSNNGH3EHR1CHF4YTAYI"><h2>Rule Violations</h2></a><a name="IDLG1UJF1ESGV2ISHSQTQWSP2NJNGQIWBBGQSRC0NAQJXWHM4JPHDM"><h2>Waived Violations</h2></a><a name="IDOJMKMRNAA4YJFMBVVH1LZPZ5WB4KKO3EAFCJPABX41NXJR2EWN2E"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1146.375mil|Location2.X=1353.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1146.375mil|Location2.X=1353.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P1-1(250mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:42 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1141.375mil|Location2.X=1348.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1141.375mil|Location2.X=1348.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P1-2(245mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1486.375mil|Location2.X=1693.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1486.375mil|Location2.X=1693.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P2-1(590mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1481.375mil|Location2.X=1688.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1481.375mil|Location2.X=1688.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P2-2(585mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1846.375mil|Location2.X=2053.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1846.375mil|Location2.X=2053.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P3-1(950mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1841.375mil|Location2.X=2048.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1841.375mil|Location2.X=2048.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P3-2(945mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2206.375mil|Location2.X=2413.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2206.375mil|Location2.X=2413.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P4-1(1310mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2201.375mil|Location2.X=2408.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2201.375mil|Location2.X=2408.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P4-2(1305mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.375mil|Location2.X=2763.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.375mil|Location2.X=2763.625mil|Location1.Y=1356.375mil|Location2.Y=1563.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P5-1(1660mil,460mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.375mil|Location2.X=2758.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2551.375mil|Location2.X=2758.625mil|Location1.Y=1576.375mil|Location2.Y=1783.625mil|Absolute=True">Hole Size Constraint: (206mil &gt; 100mil) Pad P5-2(1655mil,680mil) on Multi-Layer Actual Rectangular Hole Width = 206mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1086.375mil|Location2.X=1213.625mil|Location1.Y=1086.375mil|Location2.Y=1213.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1086.375mil|Location2.X=1213.625mil|Location1.Y=1086.375mil|Location2.Y=1213.625mil|Absolute=True">Hole Size Constraint: (126mil &gt; 100mil) Via (150mil,150mil) from Top Layer to Bottom Layer Actual Hole Size = 126mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1086.375mil|Location2.X=1213.625mil|Location1.Y=4786.375mil|Location2.Y=4913.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1086.375mil|Location2.X=1213.625mil|Location1.Y=4786.375mil|Location2.Y=4913.625mil|Absolute=True">Hole Size Constraint: (126mil &gt; 100mil) Via (150mil,3850mil) from Top Layer to Bottom Layer Actual Hole Size = 126mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4786.375mil|Location2.X=4913.625mil|Location1.Y=1086.375mil|Location2.Y=1213.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4786.375mil|Location2.X=4913.625mil|Location1.Y=1086.375mil|Location2.Y=1213.625mil|Absolute=True">Hole Size Constraint: (126mil &gt; 100mil) Via (3850mil,150mil) from Top Layer to Bottom Layer Actual Hole Size = 126mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4786.375mil|Location2.X=4913.625mil|Location1.Y=4786.375mil|Location2.Y=4913.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4786.375mil|Location2.X=4913.625mil|Location1.Y=4786.375mil|Location2.Y=4913.625mil|Absolute=True">Hole Size Constraint: (126mil &gt; 100mil) Via (3850mil,3850mil) from Top Layer to Bottom Layer Actual Hole Size = 126mil</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:05:54 PM</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3O0DBHYI4O0FIUUJOBLHXF2H11RUX3PKUOQBDPOHY4EYVL0Y5JD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3914.375mil|Location2.X=3925.625mil|Location1.Y=3954.367mil|Location2.Y=3965.617mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3914.375mil|Location2.X=3925.625mil|Location1.Y=3954.367mil|Location2.Y=3965.617mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U2-1(2920mil,3000mil) on Multi-Layer And Track (2350mil,2950mil)(2940mil,2950mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:28 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3914.375mil|Location2.X=3925.625mil|Location1.Y=4634.383mil|Location2.Y=4645.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3914.375mil|Location2.X=3925.625mil|Location1.Y=4634.383mil|Location2.Y=4645.633mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U2-7(2920mil,3600mil) on Multi-Layer And Track (2350mil,3650mil)(2940mil,3650mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:28 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-1(1110mil,3050mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2104.375mil|Location2.X=2115.625mil|Location1.Y=4084.383mil|Location2.Y=4095.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2104.375mil|Location2.X=2115.625mil|Location1.Y=4084.383mil|Location2.Y=4095.633mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-1(1110mil,3050mil) on Multi-Layer And Track (1060mil,3100mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-1(1110mil,3050mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-10(1735mil,2440mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-10(1735mil,2440mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-11(1735mil,2540mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-11(1735mil,2540mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-12(1735mil,2640mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-12(1735mil,2640mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-13(1735mil,2750mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-13(1735mil,2750mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-14(1735mil,2850mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-14(1735mil,2850mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-15(1735mil,2950mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-15(1735mil,2950mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-16(1735mil,3050mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2729.375mil|Location2.X=2740.625mil|Location1.Y=4084.383mil|Location2.Y=4095.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2729.375mil|Location2.X=2740.625mil|Location1.Y=4084.383mil|Location2.Y=4095.633mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-16(1735mil,3050mil) on Multi-Layer And Track (1685mil,3100mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=4044.375mil|Location2.Y=4055.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-16(1735mil,3050mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-2(1110mil,2950mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3944.375mil|Location2.Y=3955.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-2(1110mil,2950mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-3(1110mil,2850mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3844.375mil|Location2.Y=3855.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-3(1110mil,2850mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-4(1110mil,2750mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-4(1110mil,2750mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-5(1110mil,2640mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3634.375mil|Location2.Y=3645.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-5(1110mil,2640mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-6(1110mil,2540mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3534.375mil|Location2.Y=3545.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-6(1110mil,2540mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-7(1110mil,2440mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3434.375mil|Location2.Y=3445.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-7(1110mil,2440mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2064.367mil|Location2.X=2075.617mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-8(1110mil,2340mil) on Multi-Layer And Track (1060mil,2280mil)(1060mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2144.383mil|Location2.X=2155.633mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-8(1110mil,2340mil) on Multi-Layer And Track (1160mil,2280mil)(1160mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2689.367mil|Location2.X=2700.617mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-9(1735mil,2340mil) on Multi-Layer And Track (1685mil,2280mil)(1685mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2769.383mil|Location2.X=2780.633mil|Location1.Y=3334.375mil|Location2.Y=3345.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.984mil &lt; 10mil) Between Pad U3-9(1735mil,2340mil) on Multi-Layer And Track (1785mil,2280mil)(1785mil,3100mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.984mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.384mil|Location2.X=2605.634mil|Location1.Y=2139.375mil|Location2.Y=2150.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.384mil|Location2.X=2605.634mil|Location1.Y=2139.375mil|Location2.Y=2150.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.982mil &lt; 10mil) Between Pad U5-1(1555mil,1145mil) on Multi-Layer And Track (1610mil,1015mil)(1610mil,1475mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.982mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.384mil|Location2.X=2605.634mil|Location1.Y=2239.375mil|Location2.Y=2250.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.384mil|Location2.X=2605.634mil|Location1.Y=2239.375mil|Location2.Y=2250.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.982mil &lt; 10mil) Between Pad U5-2(1555mil,1245mil) on Multi-Layer And Track (1610mil,1015mil)(1610mil,1475mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.982mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.384mil|Location2.X=2605.634mil|Location1.Y=2339.375mil|Location2.Y=2350.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Jaden\Documents\GitHub\CSE474_Quadrotor\Board\QuadrotorPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2594.384mil|Location2.X=2605.634mil|Location1.Y=2339.375mil|Location2.Y=2350.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (9.982mil &lt; 10mil) Between Pad U5-3(1555mil,1345mil) on Multi-Layer And Track (1610mil,1015mil)(1610mil,1475mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [9.982mil]</acronym></a><br>Waived by Jaden Bottemiller at 3/2/2019 4:08:47 PM</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

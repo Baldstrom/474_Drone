@@ -1,0 +1,8 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=QuadrotorPCB.PrjPCB
+[Project2]
+ProjectPath=C:\Users\Public\Documents\Altium\PCB_Proj.PrjPCB
+[Project3]
+ProjectPath=Quadrotor_Lib.LibPkg
